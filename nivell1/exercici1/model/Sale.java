@@ -22,9 +22,18 @@ public class Sale {
         return products;
     }
 
+    public void addProduct(Product product) {
+        this.products.add(product);
+    }
+
     public void calculateTotal() throws EmptySaleException {
         if (products.isEmpty()) {
             throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
+        }
+
+        totalPrice = 0;
+        for (Product product : products) {
+            totalPrice += product.getPrice();
         }
     }
 }
