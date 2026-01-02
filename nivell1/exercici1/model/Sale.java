@@ -26,7 +26,7 @@ public class Sale {
         this.products.add(product);
     }
 
-    public void calculateTotal() throws EmptySaleException {
+    public void calculateTotal(){
         if (products.isEmpty()) {
             throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
         }

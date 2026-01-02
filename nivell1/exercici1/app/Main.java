@@ -16,13 +16,10 @@ public class Main {
         sale.addProduct(p2);
         sale.addProduct(p3);
 
-        try {
-            sale.calculateTotal();
-            sale.getProducts().get(3);
-            sale.calculateTotal();
-        } catch (EmptySaleException | IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-        }
+        sale.calculateTotal();
+        sale.getProducts().get(3);
+        sale.calculateTotal();
+
         System.out.println(sale.getTotalPrice());
     }
 }
