@@ -1,9 +1,12 @@
 # TASCA S1.02 - Exceptions
 
-## Exercici 1 - Excepcions personalitzades i control d'errors
+## Nivell 1 - Exercici 1 - Excepcions personalitzades i control d'errors
 
 **Descripció**: Es tracta de crear excepcions personalitzades per saber com es llençen, utilizant el try catch i savent quin tipus d'excepcions son.
 
 Primer s'ha fet un testeig de com sería el funcionament si EmptySaleException sigui una subclasse de Exceptions, s'ha provat el comportament utilitzant el try-catch al main, implementant la classe calculateTotal fent la suma de tots els preus dels productes i testejant l'excepcio si la llista de productes esta buida. Tambe s'ha afegit l'excepcio IndexOutOfBoundException accedint a una posició de la llista que no existeix i hem pogut veure com funciona una classe personalitzada o una ja creada per defecte. (Utilizant git log --oneline es podrà veure aquesta part). Després s'ha modificat la classe Exception que hem creat i hem pogut observar la diferencia de codi, no cal utilitzar el try-catch i no cal afegit al metode calculateTotal el throws, ja que al ser una unchecked exception, el programador tindra l'avis de que en aquella part potser surti algun error i s'haura de modificar la logica del programa.
 
 1. Quina diferencia hi ha entre una excepcio verificada (checked) i una no verificada (unchecked) com RuntimeException? Una checked exception es aquella excepcio que es externa al programa, es a dir, per exemple obrir un arxiu extern al programa i que l'arxiu no existeixi o conectar una base de dades i que no es pugui conectar, etc, son excepcions que s'han de gestionar si o si amb el try-catch perque son excepcions que s'han de gestionar. Una unchecked exception es que en alguna part del codi i ha hagut un error de fluxe o de mala programació, llavors sortirá un avisa cap al programador de que potser en aquella part del codi existeixi un error, una vegada salti el codi el programador sabrá on està el codi i podrà modificar el programa per a que el seu fluxe funcioni correctamente
+
+## Nivell 2 - Exercici 1 - Lectura segura des del teclat
+S'ha implementat la classe ConsoleReader on en els cuatre metodes de lectura de números s'ha implementat la logica per a que l'usuari introduiexi correctament les dades, utilitzant un try-catch i l'excepcio InputMismatchException. Posteriorment s'ha implementat tres metodes mes amb els strings, chars i booleans. Aquests metodes llançen una excepcio provocada per a que si no cumpleix la condicio salti al catch i es provoqui el missatge personalitzat de l'error. Per pantalla sortiran totes les dades que s'han ficat al llarg del programa.
