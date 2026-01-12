@@ -1,4 +1,4 @@
-package exercici1.app;
+package nivell2.exercici1.app;
 
 import exercici1.model.ConsoleReader;
 

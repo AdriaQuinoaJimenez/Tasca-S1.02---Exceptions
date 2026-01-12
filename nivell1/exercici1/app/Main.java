@@ -1,6 +1,5 @@
-package exercici1.app;
+package nivell1.exercici1.app;
 
-import exercici1.exceptions.EmptySaleException;
 import exercici1.model.Product;
 import exercici1.model.Sale;
 
