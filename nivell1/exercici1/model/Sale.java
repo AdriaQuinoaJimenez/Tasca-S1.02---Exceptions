@@ -1,6 +1,6 @@
-package exercici1.model;
+package nivell1.exercici1.model;
 
-import exercici1.exceptions.EmptySaleException;
+import nivell1.exercici1.exceptions.EmptySaleException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class Sale {
         this.products.add(product);
     }
 
-    public void calculateTotal(){
+    public void calculateTotal() throws EmptySaleException {
         if (products.isEmpty()) {
             throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
         }
