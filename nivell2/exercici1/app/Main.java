@@ -1,6 +1,6 @@
 package nivell2.exercici1.app;
 
-import exercici1.model.ConsoleReader;
+import nivell2.exercici1.model.ConsoleReader;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,12 +1,37 @@
-# TASCA S1.02 - Exceptions
+# S1.02 - Exceptions
 
-## Nivell 1 - Exercici 1 - Excepcions personalitzades i control d'errors
+**Descripció**:  
+Aquest projecte té com a objectiu aprendre a dotar de robustesa les aplicacions Java mitjançant la gestió correcta d'errors. S'implementen mecanismes per capturar i gestionar excepcions estàndard (com `InputMismatchException` o `IndexOutOfBoundsException`) i es creen excepcions personalitzades per controlar errors específics de la lògica de negoci i validació de dades d'entrada.
 
-**Descripció**: Es tracta de crear excepcions personalitzades per saber com es llençen, utilizant el try catch i savent quin tipus d'excepcions son.
+## 📌 Enunciat de l'exercici
 
-Primer s'ha fet un testeig de com sería el funcionament si EmptySaleException sigui una subclasse de Exceptions, s'ha provat el comportament utilitzant el try-catch al main, implementant la classe calculateTotal fent la suma de tots els preus dels productes i testejant l'excepcio si la llista de productes esta buida. Tambe s'ha afegit l'excepcio IndexOutOfBoundException accedint a una posició de la llista que no existeix i hem pogut veure com funciona una classe personalitzada o una ja creada per defecte. (Utilizant git log --oneline es podrà veure aquesta part). Després s'ha modificat la classe Exception que hem creat i hem pogut observar la diferencia de codi, no cal utilitzar el try-catch i no cal afegit al metode calculateTotal el throws, ja que al ser una unchecked exception, el programador tindra l'avis de que en aquella part potser surti algun error i s'haura de modificar la logica del programa.
+El projecte es divideix en dos nivells:
 
-1. Quina diferencia hi ha entre una excepcio verificada (checked) i una no verificada (unchecked) com RuntimeException? Una checked exception es aquella excepcio que es externa al programa, es a dir, per exemple obrir un arxiu extern al programa i que l'arxiu no existeixi o conectar una base de dades i que no es pugui conectar, etc, son excepcions que s'han de gestionar si o si amb el try-catch perque son excepcions que s'han de gestionar. Una unchecked exception es que en alguna part del codi i ha hagut un error de fluxe o de mala programació, llavors sortirá un avisa cap al programador de que potser en aquella part del codi existeixi un error, una vegada salti el codi el programador sabrá on està el codi i podrà modificar el programa per a que el seu fluxe funcioni correctamente
+* **Nivell 1 - Vendes i Excepcions Personalitzades:** Simulació d'un sistema de vendes on es gestiona l'error d'intentar calcular el total d'una venda buida mitjançant una excepció pròpia (`EmptySaleException`) i es gestionen errors d'accés a arrays (`IndexOutOfBoundsException`).
+* **Nivell 2 - Lectura Segura de Dades:** Creació d'una classe utilitària (`ConsoleReader`) que encapsula la complexitat de la classe `Scanner` per garantir que l'usuari introdueix el tipus de dada correcte, evitant que el programa es tanqui per errors de format.
 
-## Nivell 2 - Exercici 1 - Lectura segura des del teclat
-S'ha implementat la classe ConsoleReader on en els cuatre metodes de lectura de números s'ha implementat la logica per a que l'usuari introduiexi correctament les dades, utilitzant un try-catch i l'excepcio InputMismatchException. Posteriorment s'ha implementat tres metodes mes amb els strings, chars i booleans. Aquests metodes llançen una excepcio provocada per a que si no cumpleix la condicio salti al catch i es provoqui el missatge personalitzat de l'error. Per pantalla sortiran totes les dades que s'han ficat al llarg del programa.
+## ✨ Funcionalitats
+
+### Nivell 1: Gestió de Vendes (`Sale`)
+- **Càlcul de total protegit:** El mètode `calculateTotal()` verifica si la llista de productes és buida. Si ho és, llança una excepció verificada (`EmptySaleException`).
+- **Gestió d'índexs:** El programa principal captura i gestiona l'intent d'accedir a posicions inexistents de la llista de productes.
+- **Flux de prova:** El `Main` demostra la captura de l'excepció personalitzada abans d'omplir la llista i la captura de l'error d'índex després.
+
+### Nivell 2: Utilitat de Lectura (`ConsoleReader`)
+- **Lectura robusta de tipus primitius:** Mètodes estàtics (`readByte`, `readInt`, `readFloat`, `readDouble`) que capturen `InputMismatchException` i demanen la dada fins que sigui vàlida.
+- **Neteja de buffer:** Gestió automàtica del `Scanner` per evitar bucles infinits quan s'introdueixen dades errònies.
+- **Validacions personalitzades:**
+    - `readChar`: Llança excepció si s'introdueix més d'un caràcter.
+    - `readString`: Evita cadenes d'un sol caràcter (segons lògica implementada).
+    - `readYesNo`: Valida estrictament les entrades "s" o "n" (ignorant majúscules/minúscules).
+
+## 🛠 Tecnologies
+- **Llenguatge:** Java SE (Standard Edition)
+- **Entorn de Desenvolupament:** IntelliJ IDEA (Recomanat)
+- **Control de Versions:** Git
+
+## 🚀 Instal·lació i Execució
+
+### 1. Clonar el repositori
+```bash
+git clone [URL_DEL_TEU_REPOSITORI]

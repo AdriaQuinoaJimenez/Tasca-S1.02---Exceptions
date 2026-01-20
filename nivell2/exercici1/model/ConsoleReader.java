@@ -1,6 +1,6 @@
-package exercici1.model;
+package nivell2.exercici1.model;
 
-import exercici1.exceptions.InputExceptions;
+import nivell2.exercici1.exceptions.InputExceptions;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
